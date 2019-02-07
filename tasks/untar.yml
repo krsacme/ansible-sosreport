@@ -7,5 +7,5 @@
 - name: Make all local files writable (otherwise they cannot later be deleted)
   local_action: shell chmod -R +w {{ diag_path}}/{{ ansible_hostname }}
 
-- name: Remove the sosreport archive, which has now been untar\'d
-  local_action: rm -f {{ diag_path}}/{{ ansible_hostname }}/{{ diag_filename}}
+#- name: Remove the sosreport archive, which has now been untar\'d
+#  local_action: shell rm -f {{ diag_path}}/{{ ansible_hostname }}/{{ diag_filename}}

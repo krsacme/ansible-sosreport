@@ -1,3 +1,6 @@
 diags
 pkg
 config/custom.yml
+*.retry
+venv
+hosts

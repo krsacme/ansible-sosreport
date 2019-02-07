@@ -1,6 +1,6 @@
 ---
 # Grab logs from all servers
-- hosts: all
+- hosts: Controller
   
   # Limit number of hosts to run on simultaneously
   serial: 4
@@ -13,7 +13,7 @@
     - sosreport_args: ''
 
     # Name of the sosreport executable
-    - sosreport_cmd: sosreport
+    - sosreport_cmd: /sbin/sosreport
 
     # Default path to put the collected diags (can override from command-line)
     - diag_path: diags
@@ -29,12 +29,6 @@
     - [ "config/custom.yml", "config/default.yml" ]
 
   tasks:
-
-    - include: tasks/install.yml
-      when: not custom_sosreport_pkgs|bool
-
-    - include: tasks/install_custom.yml
-      when: custom_sosreport_pkgs|bool
 
     - include: tasks/run.yml
 
